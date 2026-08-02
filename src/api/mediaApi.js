@@ -2,6 +2,7 @@ import axios from 'axios';
 
 const UNSPLASH_KEY = import.meta.env.VITE_UNSPLASH_KEY;
 const PEXELS_KEY = import.meta.env.VITE_PEXELS_KEY;
+const GIPHY_KEY = import.meta.env.VITE_GIPHY_KEY;
 
 
 
@@ -22,6 +23,17 @@ export async function fetchVideos(query, per_page=15){
 
         params: {query, per_page},
         headers: {Authorization: `Client-ID ${PEXELS_KEY}`},
+    });
+
+    return res.data;
+}
+
+export async function fetchGif(query, limit=20){
+
+    const res = await axios.get(`https://api.giphy.com/v1/stickers/search`, {
+
+        params: { q:query , api_key:GIPHY_KEY, limit},
+
     });
 
     return res.data;
