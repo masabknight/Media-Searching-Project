@@ -13,11 +13,11 @@ const ResultCard = ({ item }) => {
     }
 
     return (
-        <div className='w-[18vw] relative h-80 bg-white rounded-xl overflow-hidden'>
+        <div className='w-full sm:w-80 md:w-72 lg:w-80 xl:w-[18vw] relative h-80 bg-white rounded-xl overflow-hidden'>
 
-            <a className='h-full' target='_blank' href={item.url}>
+            <a className='block w-full h-full' target='_blank' href={item.url}>
                 {item.type == 'photo' ? <img className='h-full w-full object-cover object-center' src={item.src} alt="" /> : ''}
-                {item.type == 'video' ? <video className='h-full w-full object-cover object-center' autoplay loop muted src={item.src}></video> : ''}
+                {item.type == 'video' ? <video className='h-full w-full object-cover object-center' autoPlay loop muted src={item.src}></video> : ''}
                 {item.type == 'gif' ? <img className='h-full w-full object-cover object-center' src={item.src} alt="" /> : ''}
             </a>
 
