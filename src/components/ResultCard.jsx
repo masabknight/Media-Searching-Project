@@ -2,6 +2,18 @@ import React from 'react'
 
 const ResultCard = ({ item }) => {
 
+    const addToCollection = () => {
+
+        const oldData = JSON.parse(localStorage.getItem('collection')) || [];
+
+        console.log(oldData)
+        const newData = [...oldData, item];
+        
+        localStorage.setItem('collection', JSON.stringify(newData));
+        
+        console.log(newData)
+    }
+
     return (
         <div className='w-[18vw] relative h-80 bg-white rounded-xl overflow-hidden'>
 
@@ -13,7 +25,7 @@ const ResultCard = ({ item }) => {
 
             <div id='bottom' className='flex justify-between gap-3 items-center w-full px-4 py-6 absolute bottom-0 text-white'>
                 <h2 className='text-lg font-semibold capitalize h-12 overflow-hidden'>{item.title}</h2>
-                <button className='bg-indigo-600 active:scale-95 text-white rounded px-3 py-1 cursor-pointer font-medium'>Save</button>
+                <button onClick={addToCollection} className='bg-indigo-600 active:scale-95 text-white rounded px-3 py-1 cursor-pointer font-medium'>Save</button>
             </div>
 
         </div>
