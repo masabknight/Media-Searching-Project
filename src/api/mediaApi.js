@@ -17,15 +17,12 @@ export async function fetchPhotos(query, page=1, per_page=20){
     return res.data;
 }
 
-export async function fetchVideos(query, per_page=15){
-
-    const res = await axios.get(`https://api.pexels.com/v1/videos/search`, {
-
-        params: {query, per_page},
-        headers: {Authorization: `Client-ID ${PEXELS_KEY}`},
-    });
-
-    return res.data;
+export async function fetchVideos(query,per_page=15) {
+  const res = await axios.get('https://api.pexels.com/videos/search',{
+    params:{query,per_page},
+    headers:{Authorization:PEXELS_KEY}
+  })
+  return res.data
 }
 
 export async function fetchGif(query, limit=20){
